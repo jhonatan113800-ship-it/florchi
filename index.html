@@ -15,6 +15,10 @@ button{border:none;border-radius:999px;cursor:pointer;transition:.2s;font-size:1
 #noBtn{background:#999;color:#fff;position:absolute;left:58%;top:56%;transform:translate(-50%,-50%)}
 .hidden{display:none}
 </style>
+@keyframes fadeIn {
+from {opacity:0; transform:scale(0.8);}
+to {opacity:1; transform:scale(1);}
+}
 </head>
 <body>
 <div class="card">
@@ -50,7 +54,16 @@ yesBtn.style.padding=(size*0.75)+"px "+(size*1.35)+"px";
 noBtn.addEventListener("mouseenter",moveNo);
 noBtn.addEventListener("touchstart",(e)=>{e.preventDefault();moveNo();},{passive:false});
 noBtn.addEventListener("click",(e)=>{e.preventDefault();moveNo();});
-yesBtn.addEventListener("click",()=>msg.classList.remove("hidden"));
+yesBtn.addEventListener("click",()=>{
+msg.innerHTML = `
+<div style="margin-top:20px; animation: fadeIn 1s ease;">
+<h2 style="color:#ff4d6d;">💘 TE AMO FLORCHI 💘</h2>
+<img src="https://media.tenor.com/2roX3uxz_68AAAAi/love.gif" width="200">
+<p style="font-size:30px;">🐥💛</p>
+</div>
+`;
+msg.classList.remove("hidden");
+});
 </script>
 </body>
 </html>
